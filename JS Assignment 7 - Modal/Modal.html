@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- trigger modal -->
+    <button id="openModalBtn" type="button">
+        Launch modal
+    </button>
+  
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close">&times;</span>
+            <div class="modal-header">
+                <h5 id="modalTitle">Intro</h5>
+            </div>
+            <div class="modal-body">
+                Hii I am Suraj, a web developer. 
+            </div>
+            <div class="modal-footer">
+                <button id="closeModalBtn" class="btn btn-secondary">Close</button>
+                <button id="understoodBtn" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for modal functionality
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtns = document.querySelectorAll('#closeModalBtn');
+        const modal = document.getElementById('modal');
+
+        openModalBtn.addEventListener('click', function() {
+            modal.style.display = 'block';
+        });
+
+        closeModalBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
